@@ -111,3 +111,10 @@
  .dialog-actions{padding:8px 16px}
 }
 @media(prefers-reduced-motion:no-preference){.button:hover{filter:brightness(.95)}#content{animation:enter .2s ease}@keyframes enter{from{opacity:.5;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}}
+
+/* Primary add action remains in thumb reach, above the bottom navigation. */
+.medication-fab{position:fixed;left:max(24px,calc((100vw - 1550px)/2 + 262px));bottom:24px;z-index:4;width:56px;height:56px;display:grid;place-items:center;border:0;border-radius:18px;background:var(--green);color:#fff;box-shadow:0 4px 12px #163d3540;touch-action:manipulation}
+.medication-fab:active{transform:scale(.96)}
+#content:has(.medication-fab){padding-bottom:64px}
+@media(min-width:651px) and (max-width:950px){.medication-fab{left:214px}}
+@media(max-width:650px){.medication-fab{left:max(16px,env(safe-area-inset-left));bottom:calc(84px + env(safe-area-inset-bottom))}}

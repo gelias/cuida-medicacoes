@@ -1,4 +1,4 @@
-const CACHE='cuida-shell-v5';
+const CACHE='cuida-shell-v6';
 const FILES=['./','./index.html','./app.mjs','./core.mjs','./family.mjs','./telegram.mjs','./style.css','./icon.svg','./manifest.webmanifest'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)));self.skipWaiting();});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('cuida-shell-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});

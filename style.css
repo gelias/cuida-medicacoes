@@ -117,3 +117,29 @@
 .medication-fab:active{transform:scale(.96)}
 #content:has(.medication-fab){padding-bottom:64px}
 @media(max-width:650px){.medication-fab{right:max(16px,env(safe-area-inset-right));bottom:calc(84px + env(safe-area-inset-bottom))}}
+
+/* Compact medication list, with native keyboard-accessible disclosure controls. */
+.medication-results{align-items:start}
+.med-card.med-collapsible{padding:0;min-width:0}
+.med-summary{display:flex;align-items:center;gap:12px;min-height:80px;padding:16px;cursor:pointer;list-style:none;touch-action:manipulation}
+.med-summary::-webkit-details-marker{display:none}
+.med-summary::marker{content:''}
+.med-summary:focus-visible{outline:3px solid #c68a2f;outline-offset:-3px;border-radius:14px}
+.med-chevron{flex-shrink:0;color:var(--green)}
+.med-collapsible[open]>.med-summary .med-chevron{transform:rotate(90deg)}
+.med-summary-copy{min-width:0;flex:1;display:grid;gap:5px}
+.med-summary-name{font-size:16px;line-height:1.4;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.med-collapsible[open] .med-summary-name{display:block;-webkit-line-clamp:unset}
+.med-summary-strength{font-size:12px;line-height:1.4;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.med-summary>.badge{flex-shrink:0;max-width:100px;font-size:11px}
+.med-details{padding:8px 18px 18px;border-top:1px solid var(--border)}
+.med-search{margin-bottom:18px}
+.med-search>label{display:block;font-size:13px;font-weight:600;margin-bottom:8px}
+.med-search-field{display:flex;align-items:center;gap:10px;background:white;border:1px solid #cfd9cb;border-radius:12px;padding:0 12px;min-height:50px;color:var(--muted)}
+.med-search-field:focus-within{outline:2px solid var(--green);outline-offset:2px}
+.med-search-field>svg{flex-shrink:0}
+.med-search input{width:100%;min-width:0;min-height:50px;font-size:16px;color:#253d36;border:0;background:transparent;outline:none;padding:12px 0;font-family:inherit}
+.med-search input::-webkit-search-cancel-button{-webkit-appearance:none}
+.search-clear{min-height:44px;border:0;background:transparent;color:var(--green);font-size:13px;font-weight:600;padding:8px 4px;flex-shrink:0}
+#medication-result-count{font-size:12px;color:var(--muted);margin:10px 2px 0}
+@media(max-width:360px){.med-summary{gap:8px;padding:14px 12px}.med-summary-name{font-size:15px}.med-summary>.badge{font-size:10px;max-width:82px}}
